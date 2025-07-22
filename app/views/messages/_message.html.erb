@@ -1,0 +1,11 @@
+<div class="mb-4 flex items-start gap-2">
+    <div class="w-8 h-8 rounded-full bg-indigo-200 flex items-center justify-center font-bold text-indigo-700">
+        <%= message.user.username.first.upcase rescue '?' %>
+    </div>
+    <div>
+        <div class="bg-indigo-50 rounded-lg px-4 py-2 text-gray-800"><%= message.body %></div>
+        <div class="text-xs text-gray-400 mt-1">
+        <%= message.user.username rescue 'Unknown' %> • <%= message.created_at.strftime('%I:%M %p') %>
+        </div>
+    </div>
+</div>
