@@ -20,8 +20,8 @@
       <%= render @messages %>
       </div>
       <!-- Message Input -->
-    <%= form_with(model: @message, local: true, data: { turbo: false }, url: message_path, class: "mt-4 flex gap-2") do |form| %>
-      <%= form.text_field :body, placeholder: "Type your message...", class: "flex-1 px-4 py-3 border border-gray-200 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 bg-gray-50" %>
+    <%= form_with(model: @message, url: message_path, remote: true, class: "mt-4 flex gap-2", id: "message-form") do |form| %>
+      <%= form.text_field :body, placeholder: "Type your message...", class: "flex-1 px-4 py-3 border border-gray-200 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 bg-gray-50", id: "message-input" %>
       <%= form.submit "Send", class: "bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold shadow transition" %>
     <% end %>
     </div>
