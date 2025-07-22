@@ -1,0 +1,56 @@
+{
+    // Tailwind CSS IntelliSense Configuration
+    "tailwindCSS.includeLanguages": {
+        "erb": "html",
+        "html.erb": "html"
+    },
+    "tailwindCSS.files.exclude": [
+        "**/.git/**",
+        "**/node_modules/**",
+        "**/.hg/**",
+        "**/.svn/**"
+    ],
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.classAttributes": [
+        "class",
+        "className",
+        "classList",
+        "ngClass"
+    ],
+    // Editor Configuration for Better Tailwind Experience
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
+    "css.validate": false,
+    "scss.validate": false,
+    // Auto-save and format on save
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    // File associations for better ERB support
+    "files.associations": {
+        "*.html.erb": "erb",
+        "*.erb": "erb"
+    },
+    // Emmet configuration for ERB files
+    "emmet.includeLanguages": {
+        "erb": "html"
+    },
+    // Auto-save files (helps with Tailwind auto-rebuild)
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    // Live Server configuration (though you'll use Rails server)
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.port": 5500,
+    // Better font and spacing for code readability
+    "editor.fontFamily": "'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.6,
+    // Bracket pair colorization
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active"
+}
