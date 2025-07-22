@@ -18,8 +18,11 @@
       <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50 hidden group-hover:block" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
         <div class="py-1" role="none">
         <%= link_to "Sign Up", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
+        <% if logged_in?%>
+        <%= button_to "Logout", logout_path, method: :delete, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"  %>
+        <% else %>
         <%= link_to "Login", login_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
-        <%= link_to "Logout", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
+        <% end %>
         </div>
       </div>
     </div>
