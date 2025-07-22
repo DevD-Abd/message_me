@@ -1,11 +1,34 @@
-<div class="mb-4 flex items-start gap-2">
-    <div class="w-8 h-8 rounded-full bg-indigo-200 flex items-center justify-center font-bold text-indigo-700">
-        <%= message.user.username.first.upcase rescue '?' %>
-    </div>
-    <div>
-        <div class="bg-indigo-50 rounded-lg px-4 py-2 text-gray-800"><%= message.body %></div>
-        <div class="text-xs text-gray-400 mt-1">
-        <%= message.user.username rescue 'Unknown' %> • <%= message.created_at.strftime('%I:%M %p') %>
+<% is_current_user = message.user == current_user %>
+<div class="flex <%= 'justify-end' if is_current_user %> mb-3">
+  <div class="max-w-xs lg:max-w-md">
+    <% if is_current_user %>
+      <!-- Current user's message (right side, green) -->
+      <div class="bg-green-500 text-white rounded-lg rounded-br-sm px-4 py-2 shadow-sm">
+        <p class="text-sm"><%= message.body %></p>
+      </div>
+      <div class="text-xs text-gray-500 text-right mt-1 mr-2">
+        <span><%= message.created_at.strftime('%I:%M %p') %></span>
+        <svg class="inline w-3 h-3 ml-1 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+        </svg>
+      </div>
+    <% else %>
+      <!-- Other users' messages (left side, gray) -->
+      <div class="flex items-start gap-2">
+        <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center font-semibold text-gray-700 text-sm flex-shrink-0">
+          <%= message.user.username.first.upcase rescue '?' %>
         </div>
-    </div>
+        <div>
+          <div class="bg-white border rounded-lg rounded-bl-sm px-4 py-2 shadow-sm">
+            <p class="text-sm text-gray-800"><%= message.body %></p>
+          </div>
+          <div class="text-xs text-gray-500 mt-1 ml-2">
+            <span class="font-medium"><%= message.user.username rescue 'Unknown' %></span>
+            <span class="mx-1">•</span>
+            <span><%= message.created_at.strftime('%I:%M %p') %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
